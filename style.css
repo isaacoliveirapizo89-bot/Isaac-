@@ -1,35 +1,453 @@
+/* ========================================
+   1. FONTES E VARIÁVEIS
+======================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-:root{--bg:#0b1120;--panel:#111c2e;--panel2:#142238;--text:#edf3fc;--muted:#a8b6ca;--blue:#60a5fa;--line:#263851;--max:1120px}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.7}
-a{color:inherit;text-decoration:none}
-.header{width:min(var(--max),90%);margin:auto;min-height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
-.logo{font-family:'Space Grotesk',sans-serif;font-size:1.35rem;font-weight:700;letter-spacing:.04em}.logo span{color:var(--blue)}
-.nav{display:flex;gap:28px}.nav a{color:var(--muted);font-size:.94rem;transition:color .2s}.nav a:hover,.contact-links a:hover{color:var(--blue)}
-.menu-toggle{display:none;background:none;border:0;color:var(--text);font-size:1.6rem;cursor:pointer}
-.section{width:min(var(--max),90%);margin:auto;padding:100px 0}
-.hero{min-height:620px;display:flex;align-items:center;justify-content:space-between;gap:60px}
-.hero-content{max-width:690px}.eyebrow{color:var(--blue);font-size:.76rem;font-weight:700;letter-spacing:.17em;margin-bottom:16px}
-h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.2}
-h1{font-size:clamp(2.8rem,6vw,5rem);letter-spacing:-.055em;margin-bottom:24px}h1 span{color:var(--blue)}
-.hero-text,.section-intro,.contact>p:not(.eyebrow){max-width:650px;color:var(--muted);font-size:1.08rem}
-.actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
-.button{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:8px;font-weight:700;font-size:.92rem;transition:transform .2s,background .2s}
-.button:hover{transform:translateY(-2px)}.primary{background:#2563eb;color:white}.primary:hover{background:#1d4ed8}.secondary{border:1px solid var(--line);color:var(--text)}
-.profile-wrap{text-align:center;flex-shrink:0}.profile-frame{width:245px;height:245px;border-radius:50%;padding:7px;border:2px solid var(--blue);background:var(--panel);box-shadow:0 0 55px #2563eb22;overflow:hidden}
-.profile-frame img{width:100%;height:100%;object-fit:cover;border-radius:50%}.profile-fallback{display:none;width:100%;height:100%;place-items:center;border-radius:50%;background:linear-gradient(145deg,#1e3a5f,#111c2e);font:700 3rem 'Space Grotesk';color:#bfdbfe}
-.profile-caption{color:var(--muted);font-size:.85rem;margin-top:14px}
-h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:24px;letter-spacing:-.035em}
-.about-panel{max-width:850px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px;color:var(--muted)}
-.about-panel p+p{margin-top:14px}.skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.skills span{border:1px solid var(--line);background:#101b2d;padding:7px 12px;border-radius:999px;color:#c6d8f0;font-size:.85rem}
-.section-intro{margin-top:-10px;margin-bottom:30px}
-.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:24px;display:flex;flex-direction:column;align-items:flex-start;min-height:190px}
-.card h3{font-size:1.2rem;margin-bottom:10px}.card p{color:var(--muted);font-size:.95rem}.tag{display:inline-block;color:#bfdbfe;background:#1d3555;border-radius:5px;padding:3px 8px;font-size:.76rem;margin-bottom:12px}
-.card a{color:var(--blue);font-weight:700;margin-top:auto;padding-top:18px}.card a:hover{text-decoration:underline}
-.note{color:#8192aa;font-size:.82rem;margin-top:20px}.contact{padding-bottom:110px}.contact-links{display:flex;flex-wrap:wrap;gap:24px;margin-top:25px}.contact-links a{color:var(--blue);font-weight:700}
-footer{border-top:1px solid var(--line);text-align:center;padding:25px 5%;color:#8192aa;font-size:.85rem}
-@media(max-width:760px){.header{position:relative;min-height:72px}.menu-toggle{display:block}.nav{display:none;position:absolute;z-index:5;top:72px;left:0;right:0;padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:10px;flex-direction:column;gap:14px}.nav.open{display:flex}.hero{min-height:auto;padding:75px 0;flex-direction:column-reverse;text-align:center;gap:35px}.hero-content{display:flex;flex-direction:column;align-items:center}.profile-frame{width:185px;height:185px}.section{padding:70px 0}.card-grid{grid-template-columns:1fr}.about-panel{padding:21px}.contact-links{gap:18px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+:root {
+    --bg: #0b1120;
+    --panel: #111c2e;
+    --panel2: #142238;
+    --text: #edf3fc;
+    --muted: #a8b6ca;
+    --blue: #60a5fa;
+    --line: #263851;
+    --max: 1120px;
+}
+
+/* ========================================
+   2. RESET E CONFIGURAÇÕES GERAIS
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1.2;
+}
+
+/* ========================================
+   3. CABEÇALHO E NAVEGAÇÃO
+======================================== */
+
+.header {
+    width: min(var(--max), 90%);
+    min-height: 82px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+.nav {
+    display: flex;
+    gap: 28px;
+}
+
+.nav a {
+    color: var(--muted);
+    font-size: 0.94rem;
+    transition: color 0.2s;
+}
+
+.nav a:hover,
+.contact-links a:hover {
+    color: var(--blue);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    color: var(--text);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+/* ========================================
+   4. ESTRUTURA DAS SEÇÕES
+======================================== */
+
+.section {
+    width: min(var(--max), 90%);
+    margin: auto;
+    padding: 100px 0;
+}
+
+h2 {
+    margin-bottom: 24px;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    letter-spacing: -0.035em;
+}
+
+.section-intro {
+    max-width: 650px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: 1.08rem;
+}
+
+/* ========================================
+   5. APRESENTAÇÃO PRINCIPAL (HERO)
+======================================== */
+
+.hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-content {
+    max-width: 690px;
+}
+
+.eyebrow {
+    margin-bottom: 16px;
+    color: var(--blue);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+}
+
+h1 {
+    margin-bottom: 24px;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    letter-spacing: -0.055em;
+}
+
+h1 span {
+    color: var(--blue);
+}
+
+.hero-text,
+.contact > p:not(.eyebrow) {
+    max-width: 650px;
+    color: var(--muted);
+    font-size: 1.08rem;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+}
+
+/* ========================================
+   6. BOTÕES
+======================================== */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 19px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.primary {
+    background: #2563eb;
+    color: white;
+}
+
+.primary:hover {
+    background: #1d4ed8;
+}
+
+.secondary {
+    border: 1px solid var(--line);
+    color: var(--text);
+}
+
+/* ========================================
+   7. FOTO DE PERFIL
+======================================== */
+
+.profile-wrap {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.profile-frame {
+    width: 245px;
+    height: 245px;
+    padding: 7px;
+    overflow: hidden;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    background: var(--panel);
+    box-shadow: 0 0 55px #2563eb22;
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-fallback {
+    display: none;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #1e3a5f, #111c2e);
+    color: #bfdbfe;
+    font: 700 3rem 'Space Grotesk';
+}
+
+.profile-caption {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* ========================================
+   8. SOBRE MIM E HABILIDADES
+======================================== */
+
+.about-panel {
+    max-width: 850px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--panel);
+    color: var(--muted);
+}
+
+.about-panel p + p {
+    margin-top: 14px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.skills span {
+    padding: 7px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #101b2d;
+    color: #c6d8f0;
+    font-size: 0.85rem;
+}
+
+/* ========================================
+   9. PROJETOS E CARDS
+======================================== */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.card {
+    min-height: 190px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    background: var(--panel);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.tag {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background: #1d3555;
+    color: #bfdbfe;
+    font-size: 0.76rem;
+}
+
+.card a {
+    margin-top: auto;
+    padding-top: 18px;
+    color: var(--blue);
+    font-weight: 700;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+.note {
+    margin-top: 20px;
+    color: #8192aa;
+    font-size: 0.82rem;
+}
+
+/* ========================================
+   10. CONTATO E RODAPÉ
+======================================== */
+
+.contact {
+    padding-bottom: 110px;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 25px;
+}
+
+.contact-links a {
+    color: var(--blue);
+    font-weight: 700;
+}
+
+footer {
+    padding: 25px 5%;
+    border-top: 1px solid var(--line);
+    color: #8192aa;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* ========================================
+   11. RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 760px) {
+    .header {
+        position: relative;
+        min-height: 72px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        z-index: 5;
+        top: 72px;
+        right: 0;
+        left: 0;
+        flex-direction: column;
+        gap: 14px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--panel);
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 75px 0;
+        flex-direction: column-reverse;
+        gap: 35px;
+        text-align: center;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-frame {
+        width: 185px;
+        height: 185px;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-panel {
+        padding: 21px;
+    }
+
+    .contact-links {
+        gap: 18px;
+    }
+}
+
+/* ========================================
+   12. ACESSIBILIDADE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
