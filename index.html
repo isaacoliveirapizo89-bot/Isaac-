@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Isaac Oliveira Pizo, estudante de Desenvolvimento de Sistemas.">
+  <meta name="theme-color" content="#0b1120">
+  <title>Isaac Oliveira | Portfólio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#inicio">ISAAC<span>.DEV</span></a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a><a href="#projetos">Projetos</a>
+      <a href="#certificados">Certificados</a><a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="inicio">
+      <div class="hero-content">
+        <p class="eyebrow">ESTUDANTE DE DESENVOLVIMENTO DE SISTEMAS</p>
+        <h1>Aprendendo hoje.<br><span>Construindo o amanhã.</span></h1>
+        <p class="hero-text">Olá! Sou Isaac Oliveira Pizo. Estudo programação e desenvolvo projetos para transformar conhecimento em prática.</p>
+        <div class="actions">
+          <a class="button primary" href="#projetos">Conheça meus projetos</a>
+          <a class="button secondary" href="https://github.com/isaacoliveirapizo89-bot" target="_blank" rel="noopener noreferrer">Meu GitHub ↗</a>
+        </div>
+      </div>
+      <div class="profile-wrap">
+        <div class="profile-frame">
+          <img src="assets/minha-foto.jpg" alt="Foto de Isaac Oliveira Pizo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+          <div class="profile-fallback" aria-label="Espaço reservado para foto">IO</div>
+        </div>
+        <p class="profile-caption">São Paulo · Brasil</p>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <p class="eyebrow">UM POUCO SOBRE MIM</p>
+      <h2>Sobre mim</h2>
+      <div class="about-panel">
+        <p>Sou estudante do Ensino Médio integrado ao curso técnico em Desenvolvimento de Sistemas. Tenho interesse em programação, desenvolvimento web e em aprender como a tecnologia pode resolver problemas do dia a dia.</p>
+        <p>Venho praticando com projetos próprios em Python, HTML, CSS e JavaScript. Minha experiência anterior com atendimento e vendas também me ajudou a desenvolver comunicação, responsabilidade e facilidade para lidar com pessoas.</p>
+        <p>Estou em busca da minha primeira oportunidade profissional na área de tecnologia, com vontade de aprender, colaborar e continuar evoluindo.</p>
+      </div>
+      <div class="skills" aria-label="Tecnologias em estudo">
+        <span>Python · básico</span><span>HTML</span><span>CSS</span><span>JavaScript · básico</span><span>Git e GitHub</span>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <p class="eyebrow">PRÁTICA E APRENDIZADO</p>
+      <h2>Meus projetos</h2>
+      <p class="section-intro">Alguns exercícios e projetos que fazem parte da minha evolução nos estudos.</p>
+      <div class="card-grid" id="lista-projetos"></div>
+    </section>
+
+    <section class="section" id="certificados">
+      <p class="eyebrow">FORMAÇÃO COMPLEMENTAR</p>
+      <h2>Cursos e certificados</h2>
+      <p class="section-intro">Cursos realizados para ampliar minha base em tecnologia e boas práticas.</p>
+      <div class="card-grid" id="lista-certificados"></div>
+      <p class="note">Os arquivos dos certificados serão adicionados a esta seção quando forem colocados na pasta assets/certificados.</p>
+    </section>
+
+    <section class="section contact" id="contato">
+      <p class="eyebrow">VAMOS CONVERSAR?</p>
+      <h2>Entre em contato</h2>
+      <p>Estou aberto a oportunidades de estágio, aprendizado e troca de experiências na área de tecnologia.</p>
+      <div class="contact-links">
+        <a href="mailto:isaacoliveirapizo89@gmail.com">E-mail ↗</a>
+        <a href="https://github.com/isaacoliveirapizo89-bot" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      </div>
+      <p class="note">Adicione o endereço direto do seu perfil do LinkedIn quando confirmar sua URL personalizada.</p>
+    </section>
+  </main>
+
+  <footer><p>© <span id="ano"></span> Isaac Oliveira Pizo. Feito com HTML, CSS e JavaScript.</p></footer>
+</body>
+</html>
